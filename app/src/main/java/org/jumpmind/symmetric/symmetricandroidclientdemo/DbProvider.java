@@ -8,11 +8,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+
 import androidx.annotation.Nullable;
 
 import org.jumpmind.symmetric.android.SQLiteOpenHelperRegistry;
 import org.jumpmind.symmetric.android.SymmetricService;
 import org.jumpmind.symmetric.common.ParameterConstants;
+import org.jumpmind.symmetric.transport.TransportManagerFactory;
 
 import java.util.Properties;
 
@@ -26,6 +28,11 @@ public class DbProvider extends ContentProvider {
     private final String REGISTRATION_URL = "http://192.168.62.133:31415/sync/admin-000";
     private final String NODE_ID = "device-007";
     private final String NODE_GROUP = "device";
+
+    //SSL disabled by default; edit values to enable
+    private final String httpSslVerififedServerNames = "all";
+    private final boolean alloqSelfSignedCerts = true;
+    private final boolean https2Enabled = false;
 
 //    final String SQL_CREATE_TABLE_ITEM = "CREATE TABLE IF NOT EXISTS ITEM(\n" +
 //            "    ITEM_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
@@ -76,6 +83,7 @@ public class DbProvider extends ContentProvider {
         @Override
         public void onCreate(SQLiteDatabase db) {
         }
+
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             onCreate(db);
@@ -89,6 +97,7 @@ public class DbProvider extends ContentProvider {
      */
     @Override
     public boolean onCreate() {
+        TransportManagerFactory.initHttps(httpSslVerififedServerNames, alloqSelfSignedCerts, https2Enabled);
 
         // Creates a new helper object. Note that the database itself isn't opened until
         // something tries to access it, and it's only created if it doesn't already exist.
