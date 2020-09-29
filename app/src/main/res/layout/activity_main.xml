@@ -19,7 +19,7 @@
         android:layout_alignParentTop="true"
         android:fontFamily="monospace"
         android:hint="SQL Command"
-        android:text="select * from ITEM"
+        android:text="select * from PATIENT"
         android:typeface="monospace" />
 
     <Button
