@@ -23,9 +23,9 @@ import java.util.Properties;
 public class DbProvider extends ContentProvider {
 
     //TODO: Update REGISTRATION_URL with Sync URL of corp-000
-    private final String REGISTRATION_URL = "http://YOUR_CORP_IP_ADDRESS:31415/sync/corp-000";
-    private final String NODE_ID = "android-003";
-    private final String NODE_GROUP = "store";
+    private final String REGISTRATION_URL = "http://192.168.62.133:31415/sync/admin-000";
+    private final String NODE_ID = "device-007";
+    private final String NODE_GROUP = "device";
 
     final String SQL_CREATE_TABLE_ITEM = "CREATE TABLE IF NOT EXISTS ITEM(\n" +
             "    ITEM_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
