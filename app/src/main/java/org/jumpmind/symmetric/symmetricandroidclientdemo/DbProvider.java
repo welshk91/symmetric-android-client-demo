@@ -27,34 +27,34 @@ public class DbProvider extends ContentProvider {
     private final String NODE_ID = "device-007";
     private final String NODE_GROUP = "device";
 
-    final String SQL_CREATE_TABLE_ITEM = "CREATE TABLE IF NOT EXISTS ITEM(\n" +
-            "    ITEM_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
-            "    NAME VARCHAR\n" +
-            ");";
-
-    final String SQL_CREATE_TABLE_ITEM_SELLING_PRICE = "CREATE TABLE IF NOT EXISTS ITEM_SELLING_PRICE(\n" +
-            "    ITEM_ID INTEGER NOT NULL,\n" +
-            "    STORE_ID VARCHAR NOT NULL,\n" +
-            "    PRICE DECIMAL NOT NULL,\n" +
-            "    COST DECIMAL,\n" +
-            "    PRIMARY KEY (ITEM_ID, STORE_ID)\n" +
-            ");";
-
-    final String SQL_CREATE_TABLE_SALE_TRANSACTION = "CREATE TABLE IF NOT EXISTS SALE_TRANSACTION(\n" +
-            "    TRAN_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
-            "    STORE_ID VARCHAR NOT NULL,\n" +
-            "    WORKSTATION VARCHAR NOT NULL,\n" +
-            "    DAY VARCHAR NOT NULL,\n" +
-            "    SEQ INTEGER NOT NULL\n" +
-            ");\n";
-
-    final String SQL_CREATE_TABLE_SALE_RETURN_LINE_ITEM = "CREATE TABLE IF NOT EXISTS SALE_RETURN_LINE_ITEM(\n" +
-            "    TRAN_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
-            "    ITEM_ID INTEGER NOT NULL,\n" +
-            "    PRICE DECIMAL NOT NULL,\n" +
-            "    QUANTITY INTEGER NOT NULL,\n" +
-            "    RETURNED_QUANTITY INTEGER\n" +
-            ");\n";
+//    final String SQL_CREATE_TABLE_ITEM = "CREATE TABLE IF NOT EXISTS ITEM(\n" +
+//            "    ITEM_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
+//            "    NAME VARCHAR\n" +
+//            ");";
+//
+//    final String SQL_CREATE_TABLE_ITEM_SELLING_PRICE = "CREATE TABLE IF NOT EXISTS ITEM_SELLING_PRICE(\n" +
+//            "    ITEM_ID INTEGER NOT NULL,\n" +
+//            "    STORE_ID VARCHAR NOT NULL,\n" +
+//            "    PRICE DECIMAL NOT NULL,\n" +
+//            "    COST DECIMAL,\n" +
+//            "    PRIMARY KEY (ITEM_ID, STORE_ID)\n" +
+//            ");";
+//
+//    final String SQL_CREATE_TABLE_SALE_TRANSACTION = "CREATE TABLE IF NOT EXISTS SALE_TRANSACTION(\n" +
+//            "    TRAN_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
+//            "    STORE_ID VARCHAR NOT NULL,\n" +
+//            "    WORKSTATION VARCHAR NOT NULL,\n" +
+//            "    DAY VARCHAR NOT NULL,\n" +
+//            "    SEQ INTEGER NOT NULL\n" +
+//            ");\n";
+//
+//    final String SQL_CREATE_TABLE_SALE_RETURN_LINE_ITEM = "CREATE TABLE IF NOT EXISTS SALE_RETURN_LINE_ITEM(\n" +
+//            "    TRAN_ID INTEGER NOT NULL PRIMARY KEY ,\n" +
+//            "    ITEM_ID INTEGER NOT NULL,\n" +
+//            "    PRICE DECIMAL NOT NULL,\n" +
+//            "    QUANTITY INTEGER NOT NULL,\n" +
+//            "    RETURNED_QUANTITY INTEGER\n" +
+//            ");\n";
 
     public static final String DATABASE_NAME = "symmetric-demo.db";
 
@@ -95,10 +95,10 @@ public class DbProvider extends ContentProvider {
         mOpenHelper = new DatabaseHelper(getContext());
 
         // Init the DB here
-        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_ITEM);
-        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_ITEM_SELLING_PRICE);
-        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_SALE_TRANSACTION);
-        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_SALE_RETURN_LINE_ITEM);
+//        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_ITEM);
+//        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_ITEM_SELLING_PRICE);
+//        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_SALE_TRANSACTION);
+//        mOpenHelper.getWritableDatabase().execSQL(SQL_CREATE_TABLE_SALE_RETURN_LINE_ITEM);
 
         // Register the database helper, so it can be shared with the SymmetricService
         SQLiteOpenHelperRegistry.register(DATABASE_NAME, mOpenHelper);
